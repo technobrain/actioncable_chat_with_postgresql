@@ -7,7 +7,7 @@ App.hideouts = App.cable.subscriptions.create "HideoutsChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    # alert data['whisper']
+    alert data['whisper']
     $('#whispers').append data['whisper']
 
   chat: (whisper) ->

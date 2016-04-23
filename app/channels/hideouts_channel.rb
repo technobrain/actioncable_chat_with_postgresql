@@ -10,6 +10,7 @@ class HideoutsChannel < ApplicationCable::Channel
 
   def chat(data)
     # ActionCable.server.broadcast "tb_channel", whisper: data['whisper']
-    Whisper.create content: data['whisper']
+    # Whisper.create content: data['whisper']
+    WhisperBroadcastJob.perform_later data['whisper']
   end
 end
